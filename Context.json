@@ -1,0 +1,213 @@
+{
+  "project": {
+    "name": "Project Phoenix",
+    "description": "An AI-powered Personal Growth Operating System that helps users improve productivity, habits, communication, placement preparation, and personal development.",
+    "goal": "Build a production-ready, scalable, AI-first web application that is fully deployable on Vercel."
+  },
+  "ai_instructions": {
+    "role": "Principal Software Architect, Senior Full Stack Engineer, AI Engineer, and Product Designer",
+    "behavior": [
+      "Think before generating code.",
+      "Always explain architectural decisions briefly.",
+      "Generate only the requested module.",
+      "Never generate the entire application unless explicitly requested.",
+      "Keep responses concise.",
+      "Minimize token usage.",
+      "Avoid repeating previous explanations.",
+      "Reuse existing code whenever possible.",
+      "Do not rewrite unchanged files.",
+      "Only modify files affected by the current task.",
+      "Ask for clarification instead of making assumptions.",
+      "Prefer quality over quantity."
+    ],
+    "credit_optimization": {
+      "enabled": true,
+      "rules": [
+        "Generate one feature at a time.",
+        "Return only modified files.",
+        "Avoid regenerating boilerplate.",
+        "Do not repeat folder structures after the first generation.",
+        "Do not explain common Next.js concepts.",
+        "Avoid verbose comments.",
+        "Only output complete code for files that changed.",
+        "Use markdown only when necessary.",
+        "Keep explanations under 150 words unless requested."
+      ]
+    }
+  },
+  "tech_stack": {
+    "framework": "Next.js 15 (App Router)",
+    "language": "TypeScript",
+    "styling": [
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Framer Motion"
+    ],
+    "database": {
+      "type": "PostgreSQL",
+      "orm": "Prisma"
+    },
+    "authentication": "Clerk",
+    "ai": {
+      "provider": "Google Gemini",
+      "sdk": "Vercel AI SDK",
+      "streaming": true
+    },
+    "state_management": "Zustand",
+    "validation": "Zod",
+    "forms": "React Hook Form",
+    "charts": "Recharts",
+    "email": "Resend",
+    "background_jobs": "Inngest",
+    "deployment": "Vercel",
+    "package_manager": "pnpm"
+  },
+  "constraints": {
+    "deployment": "Must deploy without modification on Vercel.",
+    "avoid": [
+      "FastAPI",
+      "Express",
+      "NestJS",
+      "MongoDB",
+      "Firebase"
+    ]
+  },
+  "design": {
+    "theme": "Dark",
+    "style": [
+      "Minimal",
+      "Glassmorphism",
+      "Modern",
+      "Responsive",
+      "Accessible"
+    ],
+    "inspiration": [
+      "Apple",
+      "Notion",
+      "Linear",
+      "Raycast",
+      "Vercel Dashboard"
+    ]
+  },
+  "features": [
+    {
+      "name": "AI Dashboard",
+      "priority": 1
+    },
+    {
+      "name": "Smart Task Manager",
+      "priority": 2
+    },
+    {
+      "name": "Habit Tracker",
+      "priority": 3
+    },
+    {
+      "name": "Reflection Journal",
+      "priority": 4
+    },
+    {
+      "name": "AI Coach",
+      "priority": 5
+    },
+    {
+      "name": "Placement Copilot",
+      "priority": 6
+    },
+    {
+      "name": "Communication Coach",
+      "priority": 7
+    },
+    {
+      "name": "Analytics Dashboard",
+      "priority": 8
+    },
+    {
+      "name": "AI Memory",
+      "priority": 9
+    }
+  ],
+  "database_entities": [
+    "User",
+    "Task",
+    "Habit",
+    "JournalEntry",
+    "Goal",
+    "PlacementProgress",
+    "Project",
+    "Achievement",
+    "AIConversation",
+    "AIMemory",
+    "Notification",
+    "Settings"
+  ],
+  "architecture": {
+    "pattern": "Feature-based",
+    "folders": [
+      "app",
+      "components",
+      "features",
+      "actions",
+      "lib",
+      "hooks",
+      "providers",
+      "services",
+      "types",
+      "prisma",
+      "styles",
+      "public"
+    ]
+  },
+  "performance": [
+    "React Server Components",
+    "Server Actions",
+    "Streaming",
+    "Suspense",
+    "Optimistic UI",
+    "Caching",
+    "Lazy Loading",
+    "Image Optimization"
+  ],
+  "security": [
+    "Protected Routes",
+    "Input Validation",
+    "Environment Variables",
+    "Server Actions",
+    "Rate Limiting"
+  ],
+  "development_plan": [
+    "Architecture",
+    "Database Schema",
+    "UI Design",
+    "Authentication",
+    "Dashboard",
+    "Task Manager",
+    "Habit Tracker",
+    "Journal",
+    "AI Integration",
+    "Analytics",
+    "Deployment"
+  ],
+  "working_rules": {
+    "before_each_step": [
+      "Explain the plan briefly.",
+      "Wait for confirmation if the task is large."
+    ],
+    "code_generation": [
+      "Generate only files needed.",
+      "Do not regenerate existing files.",
+      "Preserve project structure.",
+      "Follow Next.js best practices.",
+      "Write production-quality TypeScript."
+    ]
+  },
+  "success_criteria": [
+    "Production-ready",
+    "Deployable on Vercel",
+    "Scalable architecture",
+    "Clean UI",
+    "Maintainable codebase",
+    "Strong portfolio project",
+    "Easy to extend"
+  ]
+}
