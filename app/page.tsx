@@ -148,12 +148,12 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen bg-zinc-950 text-white overflow-hidden">
+    <div className="flex min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 overflow-hidden transition-colors duration-300">
       {/* Sidebar Navigation */}
       <Sidebar />
 
       {/* Main Content Area */}
-      <main className="flex-1 h-screen overflow-y-auto px-6 md:px-12 py-8 bg-zinc-950/60 relative scroll-smooth">
+      <main className="flex-1 h-screen overflow-y-auto px-6 md:px-12 py-8 bg-zinc-100/40 dark:bg-zinc-950/60 relative scroll-smooth">
         {renderActiveView()}
       </main>
     </div>

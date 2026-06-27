@@ -4,6 +4,7 @@ import React from "react";
 import { usePhoenixStore } from "@/hooks/use-phoenix-store";
 import { useUser, UserButton } from "@/providers/auth-provider";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./theme-toggle";
 import {
   LayoutDashboard,
   CheckSquare,
@@ -35,14 +36,14 @@ export function Sidebar() {
   return (
     <aside
       className={cn(
-        "h-screen sticky top-0 flex flex-col border-r border-zinc-900 bg-zinc-950/80 backdrop-blur-md transition-all duration-300 z-30",
+        "h-screen sticky top-0 flex flex-col border-r border-zinc-200 dark:border-zinc-900 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md transition-all duration-300 z-30",
         sidebarOpen ? "w-64" : "w-16"
       )}
     >
       {/* Header Logo */}
-      <div className="h-16 flex items-center justify-between px-4 border-b border-zinc-900">
+      <div className="h-16 flex items-center justify-between px-4 border-b border-zinc-200 dark:border-zinc-900">
         {sidebarOpen ? (
-          <div className="flex items-center gap-2 font-semibold text-lg tracking-tight bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">
+          <div className="flex items-center gap-2 font-semibold text-lg tracking-tight bg-gradient-to-r from-violet-600 to-indigo-600 dark:from-violet-400 dark:to-indigo-400 bg-clip-text text-transparent">
             <span className="text-xl">🔥</span>
             <span>PHOENIX OS</span>
           </div>
@@ -51,7 +52,7 @@ export function Sidebar() {
         )}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-1 rounded-md hover:bg-zinc-900 border border-transparent hover:border-zinc-800 text-zinc-400 hover:text-white transition-all"
+          className="p-1 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-900 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-all"
         >
           {sidebarOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
         </button>
@@ -69,20 +70,22 @@ export function Sidebar() {
               className={cn(
                 "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all group relative",
                 isActive
-                  ? "bg-zinc-900 text-white shadow-inner border-l-2 border-indigo-500"
-                  : "text-zinc-400 hover:text-white hover:bg-zinc-900/50"
+                  ? "bg-zinc-100 dark:bg-zinc-900 text-zinc-950 dark:text-white shadow-inner border-l-2 border-indigo-500"
+                  : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100/50 dark:hover:bg-zinc-900/50"
               )}
             >
               <Icon
                 size={18}
                 className={cn(
                   "transition-colors",
-                  isActive ? "text-indigo-400" : "text-zinc-400 group-hover:text-white"
+                  isActive
+                    ? "text-indigo-600 dark:text-indigo-400"
+                    : "text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-white"
                 )}
               />
               {sidebarOpen && <span className="truncate">{item.label}</span>}
               {!sidebarOpen && (
-                <div className="absolute left-16 bg-zinc-900 text-white text-xs rounded px-2 py-1 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 shadow-md border border-zinc-800">
+                <div className="absolute left-16 bg-white dark:bg-zinc-900 text-zinc-950 dark:text-white text-xs rounded px-2 py-1 opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity whitespace-nowrap z-50 shadow-md border border-zinc-200 dark:border-zinc-800">
                   {item.label}
                 </div>
               )}
@@ -91,13 +94,18 @@ export function Sidebar() {
         })}
       </nav>
 
+      {/* Theme Switcher */}
+      <div className="p-3 border-t border-zinc-200 dark:border-zinc-900">
+        <ThemeToggle minimal={!sidebarOpen} />
+      </div>
+
       {/* Footer Profile */}
-      <div className="p-4 border-t border-zinc-900 flex items-center justify-between">
+      <div className="p-4 border-t border-zinc-200 dark:border-zinc-900 flex items-center justify-between">
         {sidebarOpen ? (
           <div className="flex items-center gap-3 w-full">
             <div className="flex-1 min-w-0">
-              <p className="text-xs text-zinc-500 truncate">LOGGED IN AS</p>
-              <p className="text-sm font-medium text-zinc-200 truncate">
+              <p className="text-xs text-zinc-400 dark:text-zinc-500 truncate">LOGGED IN AS</p>
+              <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">
                 {user?.fullName || "Phoenix User"}
               </p>
             </div>
@@ -112,3 +120,4 @@ export function Sidebar() {
     </aside>
   );
 }
+
