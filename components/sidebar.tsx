@@ -5,6 +5,7 @@ import { usePhoenixStore } from "@/hooks/use-phoenix-store";
 import { UserButton } from "@/providers/auth-provider";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
+import { useRouter } from "next/navigation";
 import {
   LayoutDashboard,
   CheckSquare,
@@ -15,11 +16,13 @@ import {
   Volume2,
   BrainCircuit,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Gamepad2
 } from "lucide-react";
 
 export function Sidebar() {
   const { sidebarOpen, setSidebarOpen, activeTab, setActiveTab } = usePhoenixStore();
+  const router = useRouter();
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -30,6 +33,7 @@ export function Sidebar() {
     { id: "placement", label: "Placement Copilot", icon: GraduationCap },
     { id: "comm-coach", label: "Comm Coach", icon: Volume2 },
     { id: "memories", label: "AI Memory", icon: BrainCircuit },
+    { id: "arcade", label: "Retro Arcade", icon: Gamepad2 },
   ];
 
   return (
@@ -62,10 +66,19 @@ export function Sidebar() {
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeTab === item.id;
+          
+          const handleClick = () => {
+            if (item.id === "arcade") {
+              router.push("/snake");
+            } else {
+              setActiveTab(item.id);
+            }
+          };
+
           return (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={handleClick}
               className={cn(
                 "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all group relative",
                 isActive
