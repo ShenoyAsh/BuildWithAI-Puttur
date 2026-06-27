@@ -2,7 +2,7 @@
 
 import React from "react";
 import { usePhoenixStore } from "@/hooks/use-phoenix-store";
-import { useUser, UserButton } from "@/providers/auth-provider";
+import { UserButton } from "@/providers/auth-provider";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
 import {
@@ -20,7 +20,6 @@ import {
 
 export function Sidebar() {
   const { sidebarOpen, setSidebarOpen, activeTab, setActiveTab } = usePhoenixStore();
-  const { user } = useUser();
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -106,7 +105,7 @@ export function Sidebar() {
             <div className="flex-1 min-w-0">
               <p className="text-xs text-zinc-400 dark:text-zinc-500 truncate">LOGGED IN AS</p>
               <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 truncate">
-                {user?.fullName || "Phoenix User"}
+                Phoenix User
               </p>
             </div>
             <UserButton />
